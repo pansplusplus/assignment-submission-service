@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Submission List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<text th:insert="~{fragments/layout_main :: content}"></text>
+<div th:fragment="submissions">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" align="center">
+                <h1>
+                    All Submissions
+                </h1>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <td>Submission</td>
+                        <td>Assignment</td>
+                    </tr>
+                    <tr th:each="sub : ${sub_list}">
+                        <td th:text="${sub.getSubmissionId()}">Submission ID</a></td>
+                        <td th:text="${sub.getAssignmentId()}">Assignment ID</td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

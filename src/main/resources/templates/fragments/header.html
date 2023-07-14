@@ -1,0 +1,39 @@
+<header th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Assignment Submission System</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-link" href="/api/v1/user/register">Create a New Account</a></li>
+                    <li sec:authorize="hasAuthority('STUDENT')"><a class="nav-link"  th:href="@{/api/v1/submission/submit}" >New Submission</a></li>
+                    <li sec:authorize="hasAuthority('ADVISOR')"><a th:href="@{/api/v1/assignment/create}">New Assignment</a></li>
+                    <li></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/about}">Welcome,
+                        <text sec:authentication="principal.firstName"></text>
+                        <text sec:authorize="hasAuthority('STUDENT')">(Student).</text>
+                        <text sec:authorize="hasAuthority('ADVISOR')">(Advisor).</text>
+                        <text sec:authorize="hasAuthority('ADMIN')">(Admin).</text>
+                    </a>
+                    </li>
+                    <li><a class="nav-link" th:href="@{/logout}"> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

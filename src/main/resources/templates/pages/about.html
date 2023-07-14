@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div th:insert="~{fragments/layout_main :: content}"> </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" align="center">
+      <h1>
+        Your user details
+      </h1>
+      <tr>
+      <table class="table table-striped"></table>
+      Email:
+      <div sec:authentication="name"></div>
+      </tr>
+      <tr>
+      First Name:
+      <div sec:authentication="principal.firstName"></div>
+      </tr>
+      <tr>
+
+      Last Name:
+      <div sec:authentication="principal.lastName"></div>
+      </tr><tr>
+      <div sec:authentication="principal.authorities"></div>
+
+      <div sec:authentication=""></div>
+    </tr>
+      Role:
+    </div>
+    </table>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<text th:insert="~{fragments/layout_main :: content}"></text>
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" align="center">
+                <h1 th:text="${course.getCourseName()}">
+                    Placeholder - course name
+                </h1>
+                <h3>Here are the upcoming assignments</h3>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <td>Assignment Name</td>
+                        <td>Due Date</td>
+                    </tr>
+                    <tr th:each="assign : ${assign_for_course}">
+                        <td><a th:href="@{/api/v1/assignment/assign-by-id/{id}(id = ${assign.getAssignmentId()})}"
+                               th:text="${assign.getAssignmentName()}">Assignment Name</a></td>
+                        <td th:text="${assign.getDueDate()}"></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

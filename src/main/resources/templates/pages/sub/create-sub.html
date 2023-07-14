@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Submission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<text th:insert="~{fragments/layout_main :: content}"></text>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" align="center">
+            <h2>Save Submission</h2>
+            <form th:action="submit" th:object="${submission}" method="post">
+                <table class="table table-striped">
+                    <tr>
+                        <td>
+                    <tr>
+                        <td>Assignment</td>
+                        <td><select th:field="*{assignmentId}">
+                            <option th:each="assign : ${myAssignments}"
+                                    th:value="${assign.assignmentId}"
+                                    th:text="${assign.assignmentName}">
+                            </option>
+                        </select>
+                        </td>
+                    </tr>
+                    <input type="text" th:field="*{submissionContent}">
+                    <input type="submit" value="Submit"/>
+                    </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

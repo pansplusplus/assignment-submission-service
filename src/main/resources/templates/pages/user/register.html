@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div th:insert="~{fragments/layout_main :: content}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" align="center">
+            <h1>
+                Create User
+            </h1>
+            <table class="table table-striped">
+                <form th:object="${user}" th:action="register" method="post">
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" class="form-control"></input></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" name="firstName" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lastName" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" class="form-control"></td>
+                    </tr>
+                    <tr>
+
+                        <td>
+<!--                            <input type="reset" value="Reset"/></td><td><input type="submit" value="Submit"/>-->
+                            <button class="btn btn-warning" type="reset">Reset</button>
+                            <td>
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign by id</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<text th:insert="~{fragments/layout_main :: content}"></text>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" align="center">
+            <h1 th:text="${assign.getAssignmentName()}">
+<!--                    th:text="${course.getCourseName()}"-->
+                Placeholder - assignment name
+            </h1>
+
+            <table class="table table-striped table-hover">
+                <tr>
+                    <h3 th:text="${assign.getDueDate()}"></h3>
+<!--                    <text th:insert="~{pages/sub/create-sub :: submitform}"> </text>-->
+                </tr>
+                <tr> <h3 th:text="${assign.assignmentCredits} + ' credits'"></h3> </tr>
+            </table>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+</div>
+</body>
+</html>

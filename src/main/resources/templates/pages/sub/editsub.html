@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Sub By ID</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div th:insert="~{fragments/layout_main :: content}"> </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" align="center">
+      <h1 th:text="'Submission no ' + ${sub.submissionId} + ' submitted on ' + ${sub.submissionDate}">
+      </h1>
+      <form th:action="@{/sub-by-id/}" th:object="${subForEdit}" method="post"><table><tr><td>
+        <h3 th:text="'The submission is for ' + ${assignForSub.assignmentName}"></h3></td>
+        <!--                <select th:field="*{assignmentId}">-->
+        <!--                    <option th:each="course : ${userCourses}"-->
+        <!--                            th:value="${course.courseId}"-->
+        <!--                            th:text="${course.courseName}">-->
+        <!--                    </option>-->
+        <!--                </select>-->
+      </tr>
+        <tr><h3 th:text="'The submission content is ' + ${sub.submissionContent}"></h3> </tr>
+      </table>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

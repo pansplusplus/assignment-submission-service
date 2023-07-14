@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<text th:insert="~{fragments/layout_main :: content}"></text>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" align="center">
+            <h2>New Assignment </h2>
+            <table class="table table-striped">
+                <form action="#" th:action="@{/api/v1/assignment/create}" th:object="${newAssignment}" method="post">
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" th:field="*{assignmentName}"/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Select from your courses
+                        </td>
+                        <td>
+                            <select th:field="*{courseId}">
+                                <option th:each="course : ${user_courses}"
+                                        th:value="${course.courseId}"
+                                        th:text="${course.courseName}">
+                                </option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Due Date
+                        </td>
+                        <td>
+                            <input type="date" th:field="*{dueDate}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Credits
+                        </td>
+                        <td><input type="number" th:field="*{assignmentCredits}"></td>
+                    </tr>
+                    <td><input type="reset" value="Reset"/></td>
+                    <td><input type="submit" value="Submit"/></td>
+
+                    </tr>
+                </form>
+            </table>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>
