@@ -7,21 +7,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 @Configuration
 public class SpringJdbcConfig {
-//    @Bean
-//    public DataSource mysqlDataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setUrl("jdbc:mysql://eu-cdbr-west-03.cleardb.net");
-//        dataSource.setUsername("bc84558efbc28f");
-//        dataSource.setPassword("35f315c0");
-//        return dataSource;
-//    }
+
 
     @Bean
     public DataSource mysqlDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/assign_system");
-        dataSource.setUsername("root");
-        dataSource.setPassword("password");
+        dataSource.setUrl("jdbc:mysql://b06bc2fe1fc17f:d7911769@eu-cdbr-west-03.cleardb.net/heroku_ac343e17d3fd718?reconnect=true");
+        dataSource.setUsername("b06bc2fe1fc17f");
+        dataSource.setPassword("d7911769");
         return dataSource;
     }
 
