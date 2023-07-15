@@ -2,7 +2,6 @@ package com.ass.system.controller.auth;
 
 import com.ass.system.config.JwtService;
 import com.ass.system.model.token.Token;
-import com.ass.system.model.token.TokenRepository;
 import com.ass.system.model.token.TokenType;
 import com.ass.system.model.user.AppUser;
 import com.ass.system.model.user.Role;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationService {
     private final UserRepository repository;
-    private final TokenRepository tokenRepository;
+//    private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -63,17 +62,17 @@ public class AuthenticationService {
                 .expired(false)
                 .revoked(false)
                 .build();
-        tokenRepository.save(token);
+        //tokenRepository.save(token);
     }
 
     private void revokeAllUserTokens(AppUser user) {
-        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getUserId());
-        if (validUserTokens.isEmpty())
-            return;
-        validUserTokens.forEach(token -> {
-            token.setExpired(true);
-            token.setRevoked(true);
-        });
-        tokenRepository.saveAll(validUserTokens);
+//        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getUserId());
+//        if (validUserTokens.isEmpty())
+//            return;
+//        validUserTokens.forEach(token -> {
+//            token.setExpired(true);
+//            token.setRevoked(true);
+//        });
+//        tokenRepository.saveAll(validUserTokens);
     }
 }
