@@ -23,7 +23,7 @@
     <name>system</name>
     <description>system</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
     </properties>
     <dependencies>
         <dependency>
